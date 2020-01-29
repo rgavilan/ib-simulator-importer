@@ -1,0 +1,17 @@
+---
+app:
+  kafka:
+    input-topic-name: input-data
+  data:
+    path:
+
+# Spring configuration
+spring:
+  batch:
+    initialize-schema: never
+  main:
+    allow-bean-definition-overriding: true
+  kafka:
+    bootstrap-servers:
+    - localhost:29092
+    
