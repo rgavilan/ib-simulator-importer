@@ -1,6 +1,6 @@
 # ASIO - Importador de datos simulados
 
-Importador de datos simulados para el proyecto Backend SGI (ASIO). Se trata de un proceso batch configurado mediante Spring Batch. S
+Importador de datos simulados para el proyecto Backend SGI (ASIO). Se trata de un proceso batch configurado mediante Spring Batch. 
 
 ## Jobs disponibles
 

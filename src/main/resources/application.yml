@@ -13,5 +13,5 @@ spring:
     allow-bean-definition-overriding: true
   kafka:
     bootstrap-servers:
-    - localhost:29092
+      - localhost:29092
     

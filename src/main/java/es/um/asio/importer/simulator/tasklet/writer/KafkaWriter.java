@@ -35,6 +35,9 @@ public class KafkaWriter implements Tasklet, StepExecutionListener {
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
     
+    /**
+     * Topic name
+     */
     @Value("${app.kafka.input-topic-name}")
     private String topicName;
    

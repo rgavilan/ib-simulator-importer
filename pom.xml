@@ -13,11 +13,11 @@
 	<groupId>es.um.asio</groupId>
 	<artifactId>simulator-importer</artifactId>
 	<version>1.0-SNAPSHOT</version>
-	<name>Archetype - Java Batch</name>
-	<description>Archetype - Java Batch</description>
+	<name>UM - ASIO - simulator-importer</name>
+	<description>UM - ASIO - simulator-importer</description>
 
 	<scm>
-		<url>https://git.izertis.com/izertis-archetypes/java-batch-baseapp</url>
+		<url>https://git.izertis.com/universidaddemurcia/semantmurc/simulator-importer</url>
 	</scm>
 
 	<properties>
