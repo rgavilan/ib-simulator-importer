@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 
 import es.um.asio.importer.listener.JobCompletionNotificationListener;
 import es.um.asio.importer.simulator.tasklet.processor.AcademicInstitutionJSONProcessor;
+import es.um.asio.importer.simulator.tasklet.processor.AddRandomElementProcessor;
 import es.um.asio.importer.simulator.tasklet.processor.LinesToJSONProcessor;
 import es.um.asio.importer.simulator.tasklet.processor.ResearcherJSONProcessor;
 import es.um.asio.importer.simulator.tasklet.processor.TitleDegreeJSONProcessor;
@@ -116,6 +117,15 @@ public class SimulatorImporterJobConfiguration {
     public TitleDegreeJSONProcessor titleDegreeJSONProcessor() {
         return new TitleDegreeJSONProcessor();
     }
+    
+    /**
+     * Add Random Element Processor
+     * @return 
+     */
+    @Bean
+    public AddRandomElementProcessor addRandomElementProcessor() {
+        return new AddRandomElementProcessor();
+    }
 
     /**
      * Kafka writer
@@ -196,6 +206,15 @@ public class SimulatorImporterJobConfiguration {
     protected Step completeTitleDegree() {
         return this.steps.get("completeTitleDegree").tasklet(this.titleDegreeJSONProcessor()).build();
     }
+    
+    /**
+     * Add random item step
+     * @return
+     */
+    @Bean
+    protected Step addRandom() {
+        return this.steps.get("addRandom").tasklet(this.addRandomElementProcessor()).build();
+    }
 
     /**
      * Write kafka kstep.
@@ -223,6 +242,7 @@ public class SimulatorImporterJobConfiguration {
                 .start(this.readAcademicInstitution())
                 .next(this.linesToJson())
                 .next(this.completeAcademicInstitution())
+                .next(this.addRandom())
                 .next(this.writeKafka())
                 .build();
 
@@ -245,6 +265,7 @@ public class SimulatorImporterJobConfiguration {
                 .start(this.readResearcher())
                 .next(this.linesToJson())
                 .next(this.completeResearcher())
+                .next(this.addRandom())
                 .next(this.writeKafka())
                 .build();
 
@@ -267,6 +288,7 @@ public class SimulatorImporterJobConfiguration {
                 .start(this.readTitleDegree())
                 .next(this.linesToJson())
                 .next(this.completeTitleDegree())
+                .next(this.addRandom())
                 .next(this.writeKafka())
                 .build();
 

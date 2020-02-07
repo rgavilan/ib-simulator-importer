@@ -2,6 +2,7 @@
 app:
   kafka:
     input-topic-name: input-data
+    create-topics: false
   data:
     path:
 

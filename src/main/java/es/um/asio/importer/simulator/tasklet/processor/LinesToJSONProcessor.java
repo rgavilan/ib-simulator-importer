@@ -58,7 +58,7 @@ public class LinesToJSONProcessor implements Tasklet, StepExecutionListener {
         String[] fields;
 
         for (int i = 0; i < this.lines.size(); i++) {
-            fields = this.lines.get(0).split(DELIMITER);
+            fields = this.lines.get(i).split(DELIMITER);
 
             if (i == 0) {
                 headers = fields;
@@ -75,7 +75,8 @@ public class LinesToJSONProcessor implements Tasklet, StepExecutionListener {
      */
     @Override
     public ExitStatus afterStep(final StepExecution stepExecution) {
-        stepExecution.getJobExecution().getExecutionContext().put(JSON_DATA_BATCH_CONTEXT_OBJECT, this.jDataArray.toString());
+        stepExecution.getJobExecution().getExecutionContext().put(JSON_DATA_BATCH_CONTEXT_OBJECT,
+                this.jDataArray.toString());
         this.logger.debug("Lines Processor ended.");
         return ExitStatus.COMPLETED;
     }

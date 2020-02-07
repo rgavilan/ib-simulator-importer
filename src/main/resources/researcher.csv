@@ -1,4 +1,4 @@
-Label_es,Description_es,Label_en,Description_en,Instance of:P9:wikibase-item,Instance of:P13:string,Dirección:P10:string,Instance of:P14:wikibase-item,Titled in:P11:wikibase-item
+Label_es,Description_es,Label_en,Description_en,Instance of:P1:wikibase-item,Instance of:P2:string,Dirección:P3:string,Instance of:P4:wikibase-item,Titled in:P5:wikibase-item
 Investigador 1,Descripción Investigador 1,Researcher 1,Description Researcher 1,I:Q17,01-12-1980,Direccion 1,I:Q28,es:Titlulo 2
 Investigador 2,Descripción Investigador 2,Researcher 2,Description Researcher 2,I:Q17,01-12-1981,Direccion 2,I:Q27,es:Titlulo 2
 Investigador 3,Descripción Investigador 3,Researcher 3,Description Researcher 3,I:Q17,01-12-1982,Direccion 3,I:Q28,es:Titlulo 2
