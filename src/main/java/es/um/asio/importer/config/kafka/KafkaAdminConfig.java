@@ -1,4 +1,4 @@
-package es.um.asio.importer.config;
+package es.um.asio.importer.config.kafka;
 
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.beans.factory.annotation.Value;
