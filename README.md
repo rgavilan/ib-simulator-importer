@@ -60,16 +60,9 @@ Será preciso configurar las siguientes variables de entorno cuando se instale e
 |`APP_PERSISTENCE_DATASOURCE_USERNAME`|Nombre del usuario de acceso a la base de datos| |
 |`APP_PERSISTENCE_DATASOURCE_PASSWORD`|Contraseña del usuario de acceso a la base de datos| |
 |`APP_PERSISTENCE_DATASOURCE_URL`|URL de acceso a la base de datos MySQL|jdbc:mysql://localhost:3306/asio_jobs?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8|
-|`APP_PERSISTENCE_KAFKA_INPUT_TOPIC_NAME`|Nombre del topic de Kafka de entrada|input-data|
-|`APP_PERSISTENCE_KAFKA_CREATE_TOPICS`|Flag que indica si debe crear automáticamente los topics de Kafka. Valores admisibles `true` y `false`|false|
+|`APP_KAFKA_INPUT_TOPIC_NAME`|Nombre del topic de Kafka de entrada|input-data|
+|`APP_KAFKA_CREATE_TOPICS`|Flag que indica si debe crear automáticamente los topics de Kafka. Valores admisibles `true` y `false`|false|
 | `SPRING_KAFKA_BOOTSTRAP_SERVERS` | URL del servicio de Kafka para los productores | localhost:29092 |
 |`APP_DATA_PATH`|Ubicación de los ficheros CSV de entrada. En caso de estar vacío se toman del classpath| |
 |`APP_DATA_INITIAL`|Flag booleano que indica si se debe cargar el dataset inicial. Valores admisibles `true` y `false`|false|
 | `SPRING_BATCH_INITIALIZE_SCHEMA` | Indica si se deben inicializar los esquemas de Spring Batch. Valores admisibles: `always` y `never` | never |
-
-spring:
-  batch:
-    initialize-schema: never
-  kafka:
-    bootstrap-servers:
-      - localhost:29092
