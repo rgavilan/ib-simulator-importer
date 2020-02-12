@@ -41,6 +41,12 @@ public abstract class AbstractLinesReader implements Tasklet, StepExecutionListe
     private String dataPath;
 
     /**
+     * Loads initial dataset
+     */
+    @Value("${app.data.initial}")
+    private boolean initialDataset;
+
+    /**
      * {@inheritDoc}
      */
     @Override
@@ -54,7 +60,7 @@ public abstract class AbstractLinesReader implements Tasklet, StepExecutionListe
     @Override
     public RepeatStatus execute(final StepContribution contribution, final ChunkContext chunkContext) throws Exception {
 
-        this.lines = FileUtils.readLines(getFile(), Charset.defaultCharset());
+        this.lines = FileUtils.readLines(this.getFile(), Charset.defaultCharset());
 
         return RepeatStatus.FINISHED;
     }
@@ -68,31 +74,41 @@ public abstract class AbstractLinesReader implements Tasklet, StepExecutionListe
         this.logger.debug("Lines Reader ended.");
         return ExitStatus.COMPLETED;
     }
-    
+
     /**
      * Gets the file.
+     * 
      * @return
      * @throws IOException
      */
     private File getFile() throws IOException {
-        String fileName = this.getFileName();
+        final String fileName = this.getFileName();
         File file;
-        
-        if(StringUtils.isBlank(dataPath)) {
+
+        if (StringUtils.isBlank(this.dataPath)) {
             file = new ClassPathResource(fileName).getFile();
         } else {
-            file = new File(dataPath, fileName);
+            file = new File(this.dataPath, fileName);
         }
-        
+
         return file;
     }
 
     /**
      * Gets data file name.
-     * 
+     *
      * @return Data file name.
      */
     protected abstract String getFileName();
+
+    /**
+     * Gets the initialDataSet.
+     * 
+     * @return
+     */
+    protected boolean isInitialDataset() {
+        return this.initialDataset;
+    }
 
     /**
      * Lines object name in context.

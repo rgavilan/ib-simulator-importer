@@ -11,6 +11,7 @@ app:
     create-topics: false
   data:
     path:
+    initial: false
 
 # Spring configuration
 spring:

@@ -51,6 +51,25 @@ No es necesario especificar la clase de inicio de la aplicación, ya que el fich
 
 En entornos más complejos, se pueden usar gestores de cron como por ejemplo JobScheduler: https://www.sos-berlin.com/jobscheduler
 
-## TO-DO
+## Instalación en entorno real
 
-Actualmente la gestión de los jobs se realiza mediante la utilización de una base de datos H2. En caso que sea necesaria una gestión más fina de los lanzamientos se podría externalizar a una base de datos relacional o bien una MongoDB, en este último caso requeriría más configuración.
+Será preciso configurar las siguientes variables de entorno cuando se instale en un entorno real:
+
+|Variable|Descripción|Valor por defecto|
+|---|---|---|
+|`APP_PERSISTENCE_DATASOURCE_USERNAME`|Nombre del usuario de acceso a la base de datos| |
+|`APP_PERSISTENCE_DATASOURCE_PASSWORD`|Contraseña del usuario de acceso a la base de datos| |
+|`APP_PERSISTENCE_DATASOURCE_URL`|URL de acceso a la base de datos MySQL|jdbc:mysql://localhost:3306/asio_jobs?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8|
+|`APP_PERSISTENCE_KAFKA_INPUT_TOPIC_NAME`|Nombre del topic de Kafka de entrada|input-data|
+|`APP_PERSISTENCE_KAFKA_CREATE_TOPICS`|Flag que indica si debe crear automáticamente los topics de Kafka. Valores admisibles `true` y `false`|false|
+| `SPRING_KAFKA_BOOTSTRAP_SERVERS` | URL del servicio de Kafka para los productores | localhost:29092 |
+|`APP_DATA_PATH`|Ubicación de los ficheros CSV de entrada. En caso de estar vacío se toman del classpath| |
+|`APP_DATA_INITIAL`|Flag booleano que indica si se debe cargar el dataset inicial. Valores admisibles `true` y `false`|false|
+| `SPRING_BATCH_INITIALIZE_SCHEMA` | Indica si se deben inicializar los esquemas de Spring Batch. Valores admisibles: `always` y `never` | never |
+
+spring:
+  batch:
+    initialize-schema: never
+  kafka:
+    bootstrap-servers:
+      - localhost:29092

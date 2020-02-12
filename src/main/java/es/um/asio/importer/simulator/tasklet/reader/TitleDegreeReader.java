@@ -10,7 +10,7 @@ public class TitleDegreeReader extends AbstractLinesReader {
      */
     @Override
     protected String getFileName() {
-        return "title_degree.csv";
+        return isInitialDataset() ?  "title_degree_initial.csv" : "title_degree.csv";
     }
 
 }

@@ -10,7 +10,7 @@ public class ResearcherReader extends AbstractLinesReader {
      */
     @Override
     protected String getFileName() {
-        return "researcher.csv";
+        return isInitialDataset() ?  "researcher_initial.csv" : "researcher.csv";
     }
 
 }
