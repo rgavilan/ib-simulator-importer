@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>com.izertis.superpom</groupId>
 		<artifactId>izertis-superpom-parent-app</artifactId>
-		<version>1.1.0</version>
+		<version>1.1.1</version>
 	</parent>
 
 	<groupId>es.um.asio</groupId>
@@ -17,7 +17,7 @@
 	<description>UM - ASIO - simulator-importer</description>
 
 	<scm>
-		<url>https://git.izertis.com/universidaddemurcia/semantmurc/simulator-importer</url>
+		<url>scm:git:https://github.com/HerculesCRUE/ib-simulator-importer.git</url>
 	</scm>
 
 	<properties>
