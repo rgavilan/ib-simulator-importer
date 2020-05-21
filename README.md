@@ -2,6 +2,39 @@
 
 Importador de datos simulados para el proyecto Backend SGI (ASIO). Se trata de un proceso batch configurado mediante Spring Batch. 
 
+## OnBoarding
+
+Para iniciar el entorno de desarrollo se necesita cumplir los siguientes requisitos:
+
+* OpenJDK 11
+* Eclipse JEE 2019-09 con plugins:
+  * Spring Tools 4
+  * m2e-apt
+  * Lombok
+* Docker
+
+## Metodología de desarrollo
+
+La metodología de desarrollo es Git Flow.
+
+## Entorno de desarrollo Docker
+
+La inicialización de los elementos adicionales al entorno de desarrollo se realiza con docker. 
+
+En el directorio docker-devenv se ha configurado un fichero docker-compose.yml para poder arrancar el entorno de desarrollo.
+
+Para arrancar el entorno:
+
+```bash
+docker-compose up -d
+```
+
+Para pararlo:
+
+```bash
+docker-compose down
+```
+
 ## Jobs disponibles
 
 Se han configurado los siguientes Jobs:
@@ -12,22 +45,11 @@ Se han configurado los siguientes Jobs:
 
 Estos jobs se encargan de leer el fichero CSV correspondiente, generar un JSON con los datos y posteriormente insertarlo en un topic de Kafka.
 
-## OnBoarding
-
-Para iniciar el entorno de desarrollo se necesita cumplir los siguientes requisitos:
-
-* OpenJDK 11 (en caso de querer JDK8: Oracle JDK 8)
-* Eclipse JEE 2019-09 con plugins:
-** Spring Tools 4
-** m2e-apt
-** Lombok
-* Docker
-
 ##  Parámetros de configuración
 
-- app.kafka.input-topic-name: Nombre del topic para los datos de entrada. Valor por defecto: input-data
-- app.data.path:Directorio en el que se encuentran los CSV para la carga de datos, en caso de estar vacío se tomarán del classpath. Valor por defecto vacío
-- spring.kafka.bootstrap-servers: Dirección del servidor bootstrap de Kafka. Valor por defecto: localhost:29092
+- `app.kafka.input-topic-name`: Nombre del topic para los datos de entrada. Valor por defecto: input-data
+- `app.data.path`:Directorio en el que se encuentran los CSV para la carga de datos, en caso de estar vacío se tomarán del classpath. Valor por defecto vacío
+- `spring.kafka.bootstrap-servers`: Dirección del servidor bootstrap de Kafka. Valor por defecto: localhost:29092
 
 ## Cómo crear un nuevo Job
 
@@ -45,8 +67,12 @@ Para la configuración de la ejecución periodica de jobs, se utilizarán las he
 
 Simplemente habría que ordenarle ejecutar el comando necesario. Por ejemplo:
 
-	java -jar -Dspring.batch.job.names=importUserJob simulator-importer-0.0.1-SNAPSHOT.jar
-	
+```bash
+java -jar -Dspring.batch.job.names=importUserJob {jar-name}.jar
+```
+
+Sustituyendo `{jar-name}` por el nombre del fichero JAR generado.
+
 No es necesario especificar la clase de inicio de la aplicación, ya que el fichero MANIFEST.MF generado ya contiene la información necesaria. Solamente se especificarán los parametros necesarios.
 
 En entornos más complejos, se pueden usar gestores de cron como por ejemplo JobScheduler: https://www.sos-berlin.com/jobscheduler
@@ -66,3 +92,8 @@ Será preciso configurar las siguientes variables de entorno cuando se instale e
 |`APP_DATA_PATH`|Ubicación de los ficheros CSV de entrada. En caso de estar vacío se toman del classpath| |
 |`APP_DATA_INITIAL`|Flag booleano que indica si se debe cargar el dataset inicial. Valores admisibles `true` y `false`|false|
 | `SPRING_BATCH_INITIALIZE_SCHEMA` | Indica si se deben inicializar los esquemas de Spring Batch. Valores admisibles: `always` y `never` | never |
+
+##  Documentación adicional
+
+* [Compilación](docs/build.md)
+* [Generación Docker](docs/docker.md)

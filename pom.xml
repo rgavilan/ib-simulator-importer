@@ -17,7 +17,7 @@
 	<description>UM - ASIO - simulator-importer</description>
 
 	<scm>
-		<url>https://git.izertis.com/universidaddemurcia/semantmurc/simulator-importer</url>
+		<url>scm:git:https://github.com/HerculesCRUE/ib-simulator-importer.git</url>
 	</scm>
 
 	<properties>
