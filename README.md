@@ -2,15 +2,15 @@
 
 
 
-| Entregable     | Importador de datos simulados del DataSet de Murcia                                       |
+| Entregable     | Importador de datos simulados del DataSet de Murcia          |
 | -------------- | ------------------------------------------------------------ |
-| Fecha          | 25/05/2020                                                   |
+| Fecha          | 17/12/2020                                                   |
 | Proyecto       | [ASIO](https://www.um.es/web/hercules/proyectos/asio) (Arquitectura Semántica e Infraestructura Ontológica) en el marco de la iniciativa [Hércules](https://www.um.es/web/hercules/) para la Semántica de Datos de Investigación de Universidades que forma parte de [CRUE-TIC](http://www.crue.org/SitePages/ProyectoHercules.aspx) |
-| Módulo         | Importador de datos simulados                                              |
+| Módulo         | Importador de datos simulados                                |
 | Tipo           | Software                                                     |
-| Objetivo       | Importador de datos simulados para el proyecto Backend SGI (ASIO). Se trata de un proceso batch configurado mediante Spring Batch.  |
-| Estado         | **100%** La simulación está completa al 100% |
-| Próximos pasos | Completado. |
+| Objetivo       | Importador de datos simulados para el proyecto Backend SGI (ASIO). Se trata de un proceso batch configurado mediante Spring Batch. |
+| Estado         | **100%** La simulación está completa al 100%                 |
+| Próximos pasos | Completado.                                                  |
 | Documentación  | [Manual de usuario](https://github.com/HerculesCRUE/ib-asio-docs-/blob/master/entregables_hito_1/12-An%C3%A1lisis/Manual%20de%20usuario/Manual%20de%20usuario.md)<br />[Manual de despliegue](https://github.com/HerculesCRUE/ib-asio-composeset/blob/master/README.md)<br />[Documentación técnica](https://github.com/HerculesCRUE/ib-asio-docs-/blob/master/entregables_hito_1/11-Arquitectura/ASIO_Izertis_Arquitectura.md) |
 
 
@@ -80,7 +80,7 @@ Para la creación de Jobs, se deben seguir las instrucciones provistas en la doc
 Si se crea un solo empaquetado con varios jobs y solamente se quiere ejecutar uno en cada ejecución, se puede hacer pasando el siguiente parametro a la máquina virtual:
 
 	-Dspring.batch.job.names=job1,job2
-	
+
 ## Configuración en entornos de (pre)producción
 
 Para la configuración de la ejecución periodica de jobs, se utilizarán las herramientas proporcionadas por los sistemas operativos Windows / Linux en el que se ejecute la aplicación.
